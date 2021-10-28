@@ -4,13 +4,16 @@
  * @Author: dal
  * @Date: 2021-10-27 16:12:40
  * @LastEditors: dal
- * @LastEditTime: 2021-10-28 10:31:42
+ * @LastEditTime: 2021-10-28 10:12:30
  */
 import { Menu } from "antd"
 import { Component, createElement } from "react";
 import { Link } from "react-router-dom"
 import * as Icon from '@ant-design/icons'
-const { SubMenu } = Menu;
+import {
+  UserOutlined,
+  VideoCameraOutlined
+} from '@ant-design/icons';
 class MENU extends Component {
   constructor(props) {
     super(props)
@@ -23,32 +26,9 @@ class MENU extends Component {
    *创建icon
   */
   icon(name) {
+    console.log(name);
     return createElement(Icon[name]);
   }
-  /**
-   * 拼接routes
-   */
-  convertRoutes(arr) {
-    return arr.map(v => {
-      if (v.children.length > 0) {
-        return (
-          <SubMenu key={v.key} icon={this.icon(v.icon)} title={v.title}>
-            {this.convertRoutes(v.children)}
-          </SubMenu>
-        )
-      } else {
-        return (
-          <Menu.Item key={v.key} icon={this.icon(v.icon)}>
-            <Link to={v.path}>{v.title} </Link>
-          </Menu.Item>
-        )
-      }
-    })
-
-  }
-  /**
-   * 生命周期  = Vue-mounted 
-  */
   componentDidMount() {
     fetch('./mock/routes.json').then(res => {
       if (res.ok) {
@@ -63,10 +43,11 @@ class MENU extends Component {
   render(h) {
     return (
       <Menu theme="dark" mode="inline" defaultSelectedKeys={this.state.selectedKeys}>
-        {
-          this.convertRoutes(this.state.routes)
-
-        }
+        {this.state.routes.map(v => {
+          return (<Menu.Item key={v.key} icon={this.icon(v.icon)}>
+            <Link to={v.path}>{v.title} </Link>
+          </Menu.Item>)
+        })}
       </Menu>
 
     )

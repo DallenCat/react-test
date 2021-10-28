@@ -4,7 +4,7 @@
  * @Author: dal
  * @Date: 2021-10-27 16:12:40
  * @LastEditors: dal
- * @LastEditTime: 2021-10-28 10:31:42
+ * @LastEditTime: 2021-10-28 10:27:52
  */
 import { Menu } from "antd"
 import { Component, createElement } from "react";
@@ -29,7 +29,7 @@ class MENU extends Component {
    * 拼接routes
    */
   convertRoutes(arr) {
-    return arr.map(v => {
+    arr.map(v => {
       if (v.children.length > 0) {
         return (
           <SubMenu key={v.key} icon={this.icon(v.icon)} title={v.title}>
@@ -63,10 +63,8 @@ class MENU extends Component {
   render(h) {
     return (
       <Menu theme="dark" mode="inline" defaultSelectedKeys={this.state.selectedKeys}>
-        {
-          this.convertRoutes(this.state.routes)
+        {this.convertRoutes(this.state.routes)}
 
-        }
       </Menu>
 
     )

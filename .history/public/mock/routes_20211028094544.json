@@ -1,0 +1,20 @@
+[
+  {
+    "id":"1",
+    "key":"Dashboard",
+    "path":"/dashboard",
+    "title":"首页",
+    "children":[],
+    "icon":"UserOutlined",
+    "component":"/containers/dashboard"
+  },
+  {
+    "id":"2",
+    "key":"Personal",
+    "path":"/personal",
+    "title":"首页",
+    "children":[],
+    "icon":"VideoCameraOutlined",
+    "component":"/containers/personal"
+  }
+]
