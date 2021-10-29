@@ -14,8 +14,9 @@ import SiderDemo from "@/components/layout/index.js"
 import { Component } from 'react';
 class App extends Component {
   render() {
-    let staticPage = ['/login'] //不需要左侧导航的页面
+    let staticPage = ['/login']
     let LayoutRouter = (props) => {
+      console.log(props)
       if (staticPage.includes(props.location.pathname)) {
         return (
           <Routes />

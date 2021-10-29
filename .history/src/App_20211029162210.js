@@ -1,11 +1,3 @@
-/*
- * @Descripttion: 
- * @version: 
- * @Author: dal
- * @Date: 2021-10-26 17:14:54
- * @LastEditors: dal
- * @LastEditTime: 2021-10-29 16:36:06
- */
 
 import './App.css';
 import Routes from './routes';
@@ -13,20 +5,16 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import SiderDemo from "@/components/layout/index.js"
 import { Component } from 'react';
 class App extends Component {
+  componentDidMount() {
+    console.log(this.props.location.pathname)
+  }
   render() {
-    let staticPage = ['/login'] //不需要左侧导航的页面
     let LayoutRouter = (props) => {
-      if (staticPage.includes(props.location.pathname)) {
-        return (
+      return (
+        <SiderDemo>
           <Routes />
-        )
-      } else {
-        return (
-          <SiderDemo>
-            <Routes />
-          </SiderDemo>
-        )
-      }
+        </SiderDemo>
+      )
     }
     return (
       <Router>

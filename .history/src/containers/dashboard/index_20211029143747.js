@@ -17,6 +17,7 @@ export function Counter() {
   //   })
   // )
   const count = useSelector(selectCount)
+  console.log(count)
   const dispatch = useDispatch()
   return (
     <div>

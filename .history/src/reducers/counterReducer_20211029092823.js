@@ -4,7 +4,7 @@
  * @Author: dal
  * @Date: 2021-10-28 17:35:16
  * @LastEditors: dal
- * @LastEditTime: 2021-10-29 14:37:24
+ * @LastEditTime: 2021-10-29 09:28:23
  */
 import { createSlice } from '@reduxjs/toolkit'
 
@@ -31,5 +31,5 @@ export const counterSlice = createSlice({
 })
 
 export const { increment, decrement, incrementByAmount } = counterSlice.actions
-export const selectCount = state => state.counter.value
+
 export default counterSlice.reducer

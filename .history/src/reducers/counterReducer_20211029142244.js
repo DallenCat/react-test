@@ -4,7 +4,7 @@
  * @Author: dal
  * @Date: 2021-10-28 17:35:16
  * @LastEditors: dal
- * @LastEditTime: 2021-10-29 14:37:24
+ * @LastEditTime: 2021-10-29 14:22:44
  */
 import { createSlice } from '@reduxjs/toolkit'
 
@@ -26,10 +26,11 @@ export const counterSlice = createSlice({
     },
     incrementByAmount: (state, action) => {
       state.value += action.payload
-    }
+    },
+    selectCount: state => { return state.value }
   }
 })
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
-export const selectCount = state => state.counter.value
+export const { increment, decrement, incrementByAmount, selectCount } = counterSlice.actions
+
 export default counterSlice.reducer
